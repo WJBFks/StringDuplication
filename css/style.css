@@ -1,37 +1,40 @@
 body,
 html {
-	background-color: #e2e3e6;
+	background-color: #f1f6fa;
+	color: #404e64;
 }
 
-body{
+body {
 	margin: 0;
 }
 
 #main {
 	border-radius: 1rem;
-	margin: 1rem auto;
+	margin: 0 auto;
 	width: 50rem;
-	background-color: #f6f7fa;
-	padding-bottom: 1rem;
+	background-color: #f2f5fa;
+	padding: 1rem 0;
+	margin-top: 5rem;
 	margin-bottom: 2.5rem;
 	box-shadow: -0.3125rem 0 1.25rem #f0f0f0, 0.3125rem 0.3125rem 1.25rem #BABECC;
 }
 
-#outputText,textarea {
+#outputText,
+textarea {
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	height: 30rem;
 	width: 47rem;
 	resize: none;
 	outline: none;
-	background-color: #FFFFFF;
-	border: 0;
+	background-color: #f2f5fa;
+	border: #d7d9dc solid 0.0625rem;
 	overflow: auto;
 	box-shadow: -0.3125rem 0 1.25rem #FFF, 0.3125rem 0.3125rem 1.25rem #BABECC;
 }
 
 #outputText:hover,
-textarea:hover{
+textarea:hover {
 	box-shadow: -0.125rem -0.125rem 0.3125rem #FFF, 0.125rem 0.125rem 0.3125rem #BABECC;
 }
 
@@ -43,17 +46,19 @@ button:active {
 	box-shadow: inset 0.0625rem 0.0625rem 0.125rem #BABECC, inset -0.0625rem -0.0625rem 0.125rem #FFF;
 }
 
-span,textarea{
+span,
+textarea {
 	font-size: 2rem;
 	font-family: "等线";
 }
 
-button{
-	border: 0;
+button {
+	color: #404e64;
+	border: #d7d9dc solid 0.0625rem;
 	font-size: 2.5rem;
 	font-weight: 800;
 	font-family: "等线";
-	background-color: #ffffff;
+	background-color: #f2f5fa;
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	width: 48rem;
@@ -69,7 +74,7 @@ button:active {
 	box-shadow: inset 0.0625rem 0.0625rem 0.125rem #BABECC, inset -0.0625rem -0.0625rem 0.125rem #FFF;
 }
 
-#footer{
+#footer {
 	text-align: center;
 	bottom: 0;
 	height: 1.5rem;
@@ -77,6 +82,44 @@ button:active {
 	position: fixed;
 	background-color: #ffffff;
 	box-shadow: 0 0 1rem #aaa;
+}
+
+#header {
+	height: 4rem;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	position: fixed;
+	background-color: #ffffff;
+	box-shadow: 0 0 1rem #aaa;
+}
+
+#headerTitle {
+	margin-top: 1rem;
+}
+
+#headerTitleText {
+	color: #404e64;
+	font-family: "微软雅黑";
+	font-family: "黑体";
+	font-family: "等线";
+	font-weight: 900;
+	font-size: 2rem;
+}
+
+#mode{
+	border: #d7d9dc solid 0.0625rem;
+	border-radius: 1rem;
+	text-align: center;
+	padding: 0.75rem 1.5rem;
+	box-shadow: -0.3125rem 0 1.25rem #FFF, 0.3125rem 0.3125rem 1.25rem #BABECC;
+	left: 2rem;
+	top: 0.5rem;
+	position: fixed;
+}
+
+#mode:hover{
+	box-shadow: -0.125rem -0.125rem 0.3125rem #FFF, 0.125rem 0.125rem 0.3125rem #BABECC;
 }
 
 a {
