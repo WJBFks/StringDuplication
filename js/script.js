@@ -2,6 +2,10 @@ var text; //输入字符串
 var map; //字符编码索引
 var arr; //字符数
 var index; //字符下标
+var height;
+var width;
+var fontSize = 32;
+var mode = 1;
 
 function run() {
 	map = new Array(0);
@@ -9,7 +13,9 @@ function run() {
 	index = new Array(99999).fill(0);
 	getText();
 	putText();
+	styleClear();
 	styleChange();
+	changeSize();
 }
 
 function getText() {
@@ -28,12 +34,17 @@ function putText() {
 			index[t] = new Array();
 		}
 		index[t].push(i);
-		//console.log(text[i].charCodeAt());
 		if (t == 10) {
 			$("#outputText").append("</br>");
 		} else {
-			$("#outputText").append("<span id=\"out" + i + "\">" + text[i] + "</span>");
+			$("#outputText").append("<span class=\"outputSpan\" id=\"out" + i + "\">" + text[i] + "</span>");
 		}
+	}
+}
+
+function styleClear() {
+	for (let i = 0; i < text.length; i++) {
+		$("#out" + i).css("color", "inherit");
 	}
 }
 
@@ -42,33 +53,38 @@ function styleChange() {
 		let t = map[i]; //某字符的编码
 		if (t != 10 && t != 32) {
 			if (arr[t] > 1) {
-				search(t);
+				if (mode == 0) {
+					for (let j = 0; j < index[t].length; j++) { //查找所有的t字符
+						let ind = index[t][j];
+						$("#out" + ind).css("color", "red");
+					}
+				} else {
+					search(t);
+				}
 			}
 		}
 	}
 }
 
 function search(t) {
-	console.log(t);
-	for (let i = 0; i < index[t].length - 1; i++) { //查找所有的t字符
+	for (let i = 0; i < index[t].length; i++) { //查找所有的t字符
 		let first = index[t][i];
-		console.log("first:" + first);
 		for (let j = 0; j < index[t].length; j++) {
 			let second = index[t][j];
 			if (
-			(i == j)
-			||(text[first+1].charCodeAt()==10)
-			||(text[first+1].charCodeAt()==32)
-			||(text[second+1].charCodeAt()==10)
-			||(text[second+1].charCodeAt()==32)
-			||(text[first].charCodeAt()==10)
-			||(text[first].charCodeAt()==32)
-			||(text[second].charCodeAt()==10)
-			||(text[second].charCodeAt()==32)
+				(i == j) ||
+				(first < text.length - 1 && text[first + 1].charCodeAt() == 10) ||
+				(first < text.length - 1 && text[first + 1].charCodeAt() == 32) ||
+				(second < text.length - 1 && text[second + 1].charCodeAt() == 10) ||
+				(second < text.length - 1 && text[second + 1].charCodeAt() == 32) ||
+				(text[first].charCodeAt() == 10) ||
+				(text[first].charCodeAt() == 32) ||
+				(text[second].charCodeAt() == 10) ||
+				(text[second].charCodeAt() == 32)
 			) {
 				continue;
 			}
-			console.log("second:" + second);
+
 			if (text[first + 1] == text[second + 1]) {
 				$("#out" + first).css("color", "red");
 				$("#out" + (first + 1)).css("color", "red");
@@ -76,5 +92,30 @@ function search(t) {
 				$("#out" + (second + 1)).css("color", "red");
 			}
 		}
+	}
+}
+
+function changeSize() {
+	fontSize = $("#rangeSize")[0].value;
+	$("#showSize").html(fontSize);
+	$("#inputText").css("font-size", fontSize + "px");
+	$(".outputSpan").css("font-size", fontSize + "px");
+}
+
+function changeMode0() {
+	mode = 0;
+	styleClear();
+	styleChange();
+}
+
+function changeMode1() {
+	mode = 1;
+	styleClear();
+	styleChange();
+}
+
+function autoSta() {
+	if ($("#autoStart")[0].checked) {
+		run();
 	}
 }

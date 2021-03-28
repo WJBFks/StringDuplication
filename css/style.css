@@ -10,17 +10,16 @@ body {
 
 #main {
 	border-radius: 1rem;
-	margin: 0 auto;
-	width: 50rem;
+	margin: 2rem auto;
 	background-color: #f2f5fa;
 	padding: 1rem 0;
-	margin-top: 5rem;
-	margin-bottom: 2.5rem;
+	width: 50rem;
 	box-shadow: -0.3125rem 0 1.25rem #f0f0f0, 0.3125rem 0.3125rem 1.25rem #BABECC;
 }
 
 #outputText,
 textarea {
+	color: #404e64;
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	height: 30rem;
@@ -76,26 +75,12 @@ button:active {
 
 #footer {
 	text-align: center;
+	left: 0;
 	bottom: 0;
 	height: 1.5rem;
-	width: 100%;
+	width: 20rem;
+	border-top: #d7d9dc solid 0.0625rem;
 	position: fixed;
-	background-color: #ffffff;
-	box-shadow: 0 0 1rem #aaa;
-}
-
-#header {
-	height: 4rem;
-	text-align: center;
-	top: 0;
-	width: 100%;
-	position: fixed;
-	background-color: #ffffff;
-	box-shadow: 0 0 1rem #aaa;
-}
-
-#headerTitle {
-	margin-top: 1rem;
 }
 
 #headerTitleText {
@@ -104,21 +89,24 @@ button:active {
 	font-family: "黑体";
 	font-family: "等线";
 	font-weight: 900;
-	font-size: 2rem;
+	font-size: 3rem;
 }
 
-#mode{
+.choiceDiv {
 	border: #d7d9dc solid 0.0625rem;
+	width: 16rem;
+	margin: 2rem;
 	border-radius: 1rem;
 	text-align: center;
-	padding: 0.75rem 1.5rem;
+	padding: 0.75rem 0;
 	box-shadow: -0.3125rem 0 1.25rem #FFF, 0.3125rem 0.3125rem 1.25rem #BABECC;
 	left: 2rem;
 	top: 0.5rem;
-	position: fixed;
+	box-sizing: border-box;
+	margin-bottom: 0;
 }
 
-#mode:hover{
+.choiceDiv:hover {
 	box-shadow: -0.125rem -0.125rem 0.3125rem #FFF, 0.125rem 0.125rem 0.3125rem #BABECC;
 }
 
@@ -128,4 +116,47 @@ a {
 
 a:hover {
 	color: #66ccff;
+}
+
+#sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+
+	border-right: #c8c8c8 solid 0.0625rem;
+	background-color: #fafafa;
+	width: 20rem;
+	z-index: 100;
+}
+
+#article {
+	position: fixed;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	left: 20rem;
+
+	background-color: #ffffff;
+	overflow: auto;
+}
+
+.choiceLabel {
+	font-size: 2rem;
+}
+
+.choiceRadio,
+.choiceCheck {
+	zoom: 1.7;
+}
+
+::-webkit-scrollbar {
+	width: 0.3125rem;
+	height: 0.3125rem;
+	background-color: #EBECF0;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 6.25rem;
+	background-color: #8aa0b3;
 }
